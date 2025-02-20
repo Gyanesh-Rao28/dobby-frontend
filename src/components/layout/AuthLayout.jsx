@@ -10,7 +10,7 @@ export default function AuthLayout({ children }) {
         <div className="max-w-md text-white">
           <div className="flex items-center space-x-2 mb-8">
             <Folder size={40} />
-            <span className="text-2xl font-bold">ImageVault</span>
+            <span className="text-2xl font-bold">DobbyAds</span>
           </div>
 
           <h1 className="text-4xl font-bold mb-6">

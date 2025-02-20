@@ -33,19 +33,18 @@ export default function Navbar({ onMenuClick }) {
               <Menu className="h-6 w-6" />
             </button>
 
-            {/* Logo */}
+        
             <div
               className="flex-shrink-0 flex items-center cursor-pointer"
               onClick={() => navigate("/dashboard")}
             >
               <Folder className="h-8 w-8 text-blue-600" />
               <span className="ml-2 text-xl font-semibold hidden sm:block">
-                ImageVault
+                DobbyAds
               </span>
             </div>
           </div>
 
-          {/* Search - full width on mobile when activated */}
           {showSearch ? (
             <div className="absolute inset-x-0 top-0 bg-white h-16 flex items-center px-4 z-50">
               <form onSubmit={handleSearch} className="w-full flex">

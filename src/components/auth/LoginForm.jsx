@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Alert from "../ui/Alert";
-import { Lock, User } from "lucide-react";
+import { Lock, User, Eye, EyeOff } from "lucide-react";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ export default function LoginForm() {
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -26,6 +27,10 @@ export default function LoginForm() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const validateForm = () => {
@@ -97,12 +102,12 @@ export default function LoginForm() {
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-6 relative">
             <Input
               label="Password"
               id="password"
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               placeholder="Enter your password"
               value={formData.password}
@@ -110,6 +115,14 @@ export default function LoginForm() {
               error={errors.password}
               icon={<Lock size={18} />}
             />
+            <button
+              type="button"
+              className="absolute right-3 top-9 text-gray-500 hover:text-gray-700 focus:outline-none"
+              onClick={togglePasswordVisibility}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
           </div>
 
           <Button
