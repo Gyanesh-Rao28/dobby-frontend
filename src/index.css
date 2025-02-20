@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Add proper top padding to the main content area */
+main {
+    padding-top: 64px;
+    /* Adjust this to match your navbar height */
+}
+
+/* Fix the height calculation for the sidebar */
+.sidebar {
+    height: calc(100vh - 64px);
+    /* Subtract navbar height */
+    top: 64px;
+    /* Position below navbar */
+}
+
+/* Make sure the content area uses the full remaining height */
+.content-area {
+    min-height: calc(100vh - 64px);
+}
